@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use luna\product;
 
-class DatabaseSeeder extends Seeder
+class ProductsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,8 +12,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call(UserTableSeeder::class);
-         $this->call(ProductsTableSeeder::class);
-
+        factory(product::class,80)->create();
     }
 }

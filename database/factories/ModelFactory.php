@@ -22,3 +22,15 @@ $factory->define(luna\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+
+$factory->define(luna\product::class, function (Faker\Generator $faker) {
+    
+
+    return [
+        'name' => $faker->sentence(),//texto corto
+        'short' => $faker->text(140),// texto de 140 caracteres
+        'description' => $faker->text(800),//texto de 800 caracteres
+        
+    ];
+});
