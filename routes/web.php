@@ -18,3 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+
+//----------------eliminar con AJAX------------------------
+Rote::DELETE('/eliminar-producto/{id}','HomeController@destroyProduct')->name('destroyProduct');

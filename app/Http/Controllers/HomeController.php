@@ -23,6 +23,22 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $products = \luna\product::paginate();
+        return view('home', compact('products'));
+    }
+
+    public function destroyProduct(Request $request, $id){//-----eliminando con AJAX
+
+       if($request->ajax()){
+        $product = \luna\product::find($id);
+        $product->delete();
+        $products_total = \luna\product::all()->count();//-----cuanta los archivos que quedan luego de eliminar
+
+        return response()->json([
+                'total'=>$products_total,
+                'message'=> $product->name . 'fue eliminado correctamente'
+
+            ])
+       } 
     }
 }
