@@ -9,11 +9,11 @@
 
                 <div class="panel-body">
                     <p>
-                        <span id="products-total">{{ $products->total() }} </span>registros|
+                        <span id="products-total">{{ $products->total() }} </span> registros|
                         pagina {{$products->currentPage() }}
                         de {{ $products->lastPage() }}
                     </p>
-                <div class="alert aler-info" id="alert"></div>
+                <div class="alert alert-info" id="alert"></div>
                 <table class="table table-hover table-striped">
                     <thead>
                         <tr>
@@ -27,7 +27,13 @@
                         <tr>
                             <td width="20px">{{$item->id}}</td>
                             <td>{{ $item->name}}</td>
-                            <td width="20px"></td>
+                            <td width="20px">
+                                {!! Form::open(['route' => ['destroyProduct', $item->id], 'method'=>'DELETE']) !!}
+                                    
+                                    <a href="#" class="btn-delete"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+
+                                {!! Form::close() !!}
+                            </td>
                         </tr>
 
 
@@ -42,4 +48,10 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+
+<script type="text/javascript" src="{{ asset('js/script.js')}}"></script>
+
 @endsection

@@ -38,7 +38,7 @@ class HomeController extends Controller
                 'total'=>$products_total,
                 'message'=> $product->name . 'fue eliminado correctamente'
 
-            ])
+            ]);
        } 
     }
 }
